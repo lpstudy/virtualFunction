@@ -42,6 +42,9 @@ public:
 //B1: f, f1, bf1,bf
 //B2: f, f2, bf2, bf
 //D:  f, f1, f2, df
+//对象D包含两个虚表，虚表1是和B1共用的，虚表2是B2的
+//派生类D覆盖了哪一个基类的函数，就放到哪一个函数的虚表中
+//派生类D独有的例如Df，则放到B1的虚表中。
 class D : public B1, public B2
 {
 public:

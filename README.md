@@ -84,3 +84,7 @@ MSVC layout
 
 ### Diamond inheritance and virtual inheritance are still in question!
 ### need to be explored. Know how to print the class layout of C++ object.
+# Print Class Layout
+1. cl [source.cpp] /d1reportSingleClassLayout 
+2. Project -> properties -> Configure Property -> C/C++ -> Additional Options
+    add "/d1reportSingleClassLayout"

@@ -1,0 +1,168 @@
+class B size(12):
+ +---
+ 0 | {vfptr}
+ 4 | ib
+ 8 | cb
+   | <alignment member> (size=3)
+ +---
+B::$vftable@:
+ | &B_meta
+ |  0
+ 0 | &B::f
+ 1 | &B::Bf
+B::f this adjustor: 0
+B::Bf this adjustor: 0
+class B1 size(20):
+ +---
+ | +--- (base class B)
+ 0 | | {vfptr}
+ 4 | | ib
+ 8 | | cb
+   | | <alignment member> (size=3)
+ | +---
+12 | ib1
+16 | cb1
+   | <alignment member> (size=3)
+ +---
+ 
+B1::$vftable@:
+ | &B1_meta
+ |  0
+ 0 | &B1::f
+ 1 | &B::Bf
+ 2 | &B1::f1
+ 3 | &B1::Bf1
+B1::f this adjustor: 0
+B1::f1 this adjustor: 0
+B1::Bf1 this adjustor: 0
+class B2 size(20):
+ +---
+ | +--- (base class B)
+ 0 | | {vfptr}
+ 4 | | ib
+ 8 | | cb
+   | | <alignment member> (size=3)
+ | +---
+12 | ib2
+16 | cb2
+   | <alignment member> (size=3)
+ +---
+B2::$vftable@:
+ | &B2_meta
+ |  0
+ 0 | &B2::f
+ 1 | &B::Bf
+ 2 | &B2::f2
+ 3 | &B2::Bf2
+B2::f this adjustor: 0
+B2::f2 this adjustor: 0
+B2::Bf2 this adjustor: 0
+
+class D size(48):
+ +---
+ | +--- (base class B1)
+ | | +--- (base class B)
+ 0 | | | {vfptr}
+ 4 | | | ib
+ 8 | | | cb
+   | | | <alignment member> (size=3)
+ | | +---
+12 | | ib1
+16 | | cb1
+   | | <alignment member> (size=3)
+ | +---
+ | +--- (base class B2)
+ | | +--- (base class B)
+20 | | | {vfptr}
+24 | | | ib
+28 | | | cb
+   | | | <alignment member> (size=3)
+ | | +---
+32 | | ib2
+36 | | cb2
+   | | <alignment member> (size=3)
+ | +---
+40 | id
+44 | cd
+   | <alignment member> (size=3)
+ +---
+D::$vftable@B1@:
+ | &D_meta
+ |  0
+ 0 | &D::f
+ 1 | &B::Bf
+ 2 | &D::f1
+ 3 | &B1::Bf1
+ 4 | &D::Df
+D::$vftable@B2@:
+ | -20
+ 0 | &thunk: this-=20; goto D::f
+ 1 | &B::Bf
+ 2 | &D::f2
+ 3 | &B2::Bf2
+D::f this adjustor: 0
+D::f1 this adjustor: 0
+D::f2 this adjustor: 20
+D::Df this adjustor: 0
+
+
+
+Source code:
+class B
+{
+public:
+	int ib;
+	char cb;
+public:
+	B():ib(0),cb('B') {}
+
+	virtual void f() { cout << "B::f()" << endl;}
+	virtual void Bf() { cout << "B::Bf()" << endl;}
+};
+class B1 :  public B
+{
+public:
+	int ib1;
+	char cb1;
+public:
+	B1():ib1(11),cb1('1') {}
+
+	virtual void f() { cout << "B1::f()" << endl;}
+	virtual void f1() { cout << "B1::f1()" << endl;}
+	virtual void Bf1() { cout << "B1::Bf1()" << endl;}
+
+};
+class B2:  public B
+{
+public:
+	int ib2;
+	char cb2;
+public:
+	B2():ib2(12),cb2('2') {}
+
+	virtual void f() { cout << "B2::f()" << endl;}
+	virtual void f2() { cout << "B2::f2()" << endl;}
+	virtual void Bf2() { cout << "B2::Bf2()" << endl;}
+
+};
+
+//B1: f, f1, bf1,bf
+//B2: f, f2, bf2, bf
+//D:  f, f1, f2, df
+//对象D包含两个虚表，虚表1是和B1共用的，虚表2是B2的
+//派生类D覆盖了哪一个基类的函数，就放到哪一个函数的虚表中
+//派生类D独有的例如Df，则放到B1的虚表中。
+class D : public B1, public B2
+{
+public:
+	int id;
+	char cd;
+public:
+	D():id(100),cd('D') {}
+
+	virtual void f() { cout << "D::f()" << endl;}
+	virtual void f1() { cout << "D::f1()" << endl;}
+	virtual void f2() { cout << "D::f2()" << endl;}
+	virtual void Df() { cout << "D::Df()" << endl;}
+
+};

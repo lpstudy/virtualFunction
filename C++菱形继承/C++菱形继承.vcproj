@@ -2,7 +2,7 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9.00"
-	Name="C++ÖØ¸´¼Ì³Ð"
+	Name="C++ÁâÐÎ¼Ì³Ð"
 	ProjectGUID="{B02B6EB6-951D-420C-9651-1B8F4A6F2962}"
 	RootNamespace="CÖØ¸´¼Ì³Ð"
 	Keyword="Win32Proj"
@@ -40,6 +40,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
+				AdditionalOptions="/d1 reportAllClassLayout"
 				Optimization="0"
 				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE"
 				MinimalRebuild="true"
@@ -171,7 +172,7 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\Ðéº¯ÊýÖØ¸´¼Ì³Ð.cpp"
+				RelativePath=".\Ðéº¯ÊýÁâÐÎ¼Ì³Ð.cpp"
 				>
 			</File>
 		</Filter>

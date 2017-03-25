@@ -5,9 +5,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "C++虚函数表", "C++虚�
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "C++虚函数多重继承", "C++虚函数多重继承\C++虚函数多重继承.vcproj", "{84FBEAE0-5D4E-45CC-831E-03A4456BBD7C}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "C++重复继承", "C++重复继承\C++重复继承.vcproj", "{B02B6EB6-951D-420C-9651-1B8F4A6F2962}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "C++钻石型虚拟继承", "C++钻石型虚拟继承\C++钻石型虚拟继承.vcproj", "{B6A97631-6C79-4786-9124-F109F2FEC8F7}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "C++菱形继承", "C++菱形继承\C++菱形继承.vcproj", "{B02B6EB6-951D-420C-9651-1B8F4A6F2962}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,14 +23,14 @@ Global
 		{84FBEAE0-5D4E-45CC-831E-03A4456BBD7C}.Debug|Win32.Build.0 = Debug|Win32
 		{84FBEAE0-5D4E-45CC-831E-03A4456BBD7C}.Release|Win32.ActiveCfg = Release|Win32
 		{84FBEAE0-5D4E-45CC-831E-03A4456BBD7C}.Release|Win32.Build.0 = Release|Win32
-		{B02B6EB6-951D-420C-9651-1B8F4A6F2962}.Debug|Win32.ActiveCfg = Debug|Win32
-		{B02B6EB6-951D-420C-9651-1B8F4A6F2962}.Debug|Win32.Build.0 = Debug|Win32
-		{B02B6EB6-951D-420C-9651-1B8F4A6F2962}.Release|Win32.ActiveCfg = Release|Win32
-		{B02B6EB6-951D-420C-9651-1B8F4A6F2962}.Release|Win32.Build.0 = Release|Win32
 		{B6A97631-6C79-4786-9124-F109F2FEC8F7}.Debug|Win32.ActiveCfg = Debug|Win32
 		{B6A97631-6C79-4786-9124-F109F2FEC8F7}.Debug|Win32.Build.0 = Debug|Win32
 		{B6A97631-6C79-4786-9124-F109F2FEC8F7}.Release|Win32.ActiveCfg = Release|Win32
 		{B6A97631-6C79-4786-9124-F109F2FEC8F7}.Release|Win32.Build.0 = Release|Win32
+		{B02B6EB6-951D-420C-9651-1B8F4A6F2962}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B02B6EB6-951D-420C-9651-1B8F4A6F2962}.Debug|Win32.Build.0 = Debug|Win32
+		{B02B6EB6-951D-420C-9651-1B8F4A6F2962}.Release|Win32.ActiveCfg = Release|Win32
+		{B02B6EB6-951D-420C-9651-1B8F4A6F2962}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
